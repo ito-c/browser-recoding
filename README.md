@@ -8,3 +8,4 @@ mediaDevices.getUserMediaを使用して開発したパターン
   - PC safariの場合、MediaRecorderが有効にできず、録画が動作しない（safari 12.1.2）
 - iOS safariの場合、stream領域がブラックアウトしたまま（録画は可能）
 - iOS safariにおける録画データの画面の向きが横になる
+- iOS ChromeではgetUserMediaエラーでアクティベート不可（未調査）
