@@ -14,7 +14,7 @@ let height = 0;
 /**
  * ユーザーデバイスアクティベート
  */
-getUserCameraBtn.onclick = async function getLocalMediaStream() {
+getUserCameraBtn.onclick = async () => {
   if (localStream) {
     return;
   }
@@ -47,7 +47,7 @@ getUserCameraBtn.onclick = async function getLocalMediaStream() {
  * 録画開始
  * iphoneで実行するには、iOS>safariの設定から'MediaRecorder'を有効にする必要あり
  */
-startRecBtn.addEventListener("click", function () {
+startRecBtn.addEventListener("click", () => {
   if (!localStream) {
     alert("カメラの使用を許可してください");
     return;
@@ -109,7 +109,10 @@ downloadBtn.addEventListener("click", () => {
   document.body.removeChild(a);
 });
 
-// ストリーミング（音声・ビデオ）の停止
+/**
+ * ユーザーデバイス無効化
+ * ストリーミング（音声・ビデオ）の停止
+ */
 stopStreamBtn.addEventListener("click", () => {
   if (!localStream) {
     return;
@@ -135,12 +138,13 @@ function handleVideoDataAvailable(event) {
   // ダウンロード用にデータ格納
   recordedData.push(file);
 
-  // 動画のプレビュー
   previewFile(file)
 }
 
+/**
+ * 録画データのプレビュー
+ */
 function previewFile(file) {
-  // プレビュー作成
   const previewVideo = document.getElementById("previewVideo");
 
   previewVideo.setAttribute("controls", "");
